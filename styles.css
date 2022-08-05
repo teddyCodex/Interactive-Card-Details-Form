@@ -1,1 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap");
 
+:root {
+  --debug: 1px solid red;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(images/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-position: left -250px top 0;
+  background-size: 100vh;
+  height: 100vh;
+}

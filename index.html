@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <div class="container">
+      <section class="card-display">
+        <div class="card-front">
+          <img src="images/bg-card-front.png" alt="display of card front" />
+          <img src="images/card-logo.svg" alt="logo on the card" />
+          <p class="card-number-display">0000 0000 0000 0000</p>
+          <p class="cardholder-display">JANE APPLESEED</p>
+          <p class="expiry-date-display">00/00</p>
+        </div>
+
+        <div class="card-back">
+          <img src="images/bg-card-back.png" alt="" />
+          <p class="cvc-display">000</p>
+        </div>
+      </section>
+
+      <section class="card-details">
+        <form action="">
+          <label for="cardholder-name">
+            CARDHOLDER NAME
+            <input type="text" name="cardholder-name" />
+          </label>
+
+          <label for="card-number">
+            CARD NUMBER
+            <input type="text" name="card-number" />
+          </label>
+
+          <label for="expiry-date">
+            EXP. DATE (MM/YY)
+            <input type="text" name="expiry-date" />
+            <input type="text" name="expiry-date" />
+          </label>
+
+          <label for="cvc">
+            CVC
+            <input type="text" name="cvc" />
+          </label>
+
+          <button type="submit" id="submit">SUBMIT</button>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>
