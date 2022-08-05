@@ -8,6 +8,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 body {
@@ -15,41 +16,54 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  font-family: "Space Grotesk", sans-serif;
   font-size: 18px;
 }
 
 .bg-img {
   position: absolute;
-  width: 35%;
+  width: 40%;
   height: 100%;
 }
 
 .container {
   position: relative;
-  max-width: 1200px;
+  max-width: 1440px;
   width: 100%;
   margin: auto;
-  height: 700px;
+  height: 800px;
   display: flex;
-  border: var(--debug);
   /* display: none; */
-}
-
-section {
-  border: var(--debug);
 }
 
 section.card-display {
   flex: 0 1 600px;
+  position: relative;
   color: hsl(0, 0%, 100%);
+  flex: 1 0 auto;
+}
+section.card-details {
+  position: relative;
+  flex: 0 1 45%;
 }
 
 /* CARD STYLING */
 .card-front,
 .card-back {
-  position: relative;
+  position: absolute;
   width: fit-content;
+}
+.card-front-img,
+.card-back-img {
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+.card-front {
+  left: 210px;
+  top: 130px;
+}
+.card-back {
+  left: 280px;
+  bottom: 130px;
 }
 .card-logo,
 .card-number-display,
@@ -85,6 +99,109 @@ section.card-display {
   right: 60px;
   bottom: 117px;
 }
-section.card-details {
-  flex: 0 1 600px;
+
+/* CARD FORM SECTION */
+form {
+  height: 350px;
+}
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+input {
+  width: 350px;
+  padding: 10px 10px;
+  border: 1px solid hsla(279, 6%, 55%, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+}
+input:focus {
+  outline: 0px solid hsl(249, 99%, 64%);
+  border-top-color: hsl(249, 99%, 64%);
+  border-right-color: hsl(278, 94%, 30%);
+  border-bottom-color: hsl(249, 99%, 64%);
+  border-left-color: hsl(278, 94%, 30%);
+}
+input::placeholder {
+  font-weight: 300;
+}
+.flex {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.flex .expiry-month,
+.flex .expiry-year {
+  width: 90px;
+  margin-right: 5px;
+}
+.flex .cvc {
+  width: 135px;
+}
+input.expiry-month,
+input.expiry-year,
+input.cvc {
+  margin-top: 5px;
+}
+.card-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input.cardholder-name,
+input.card-number {
+  margin-bottom: 30px;
+}
+
+button {
+  all: unset;
+  text-align: center;
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: hsl(278, 68%, 11%);
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+button:hover {
+  background-color: hsl(278, 68%, 11%, 0.8);
+}
+
+/* MEDIA QUERIES */
+/* 2560px */
+@media screen and (min-width: 2560px) {
+  .card-front {
+    left: 150px;
+    top: 130px;
+  }
+  .card-back {
+    left: 220px;
+    bottom: 130px;
+  }
+}
+
+/* 1440px */
+@media screen and (max-width: 1440px) {
+  .card-front {
+    left: 255px;
+  }
+  .card-back {
+    left: 330px;
+  }
+}
+
+/* 1024px */
+@media screen and (max-width: 1024px) {
+  .card-front {
+    left: 75px;
+  }
+  .card-back {
+    left: 140px;
+  }
 }

@@ -39,35 +39,53 @@
         </div>
 
         <div class="card-back">
-          <img src="images/bg-card-back.png" alt="" />
+          <img class="card-back-img" src="images/bg-card-back.png" alt="" />
           <p class="cvc-display">000</p>
         </div>
       </section>
 
       <section class="card-details">
         <form action="">
-          <label for="cardholder-name">
-            CARDHOLDER NAME
-            <input type="text" name="cardholder-name" />
-          </label>
+          <label for="cardholder-name"> CARDHOLDER NAME</label>
+          <input
+            class="cardholder-name"
+            type="text"
+            name="cardholder-name"
+            placeholder="e.g. Jane Appleseed"
+          />
 
-          <label for="card-number">
-            CARD NUMBER
-            <input type="text" name="card-number" />
-          </label>
+          <label for="card-number"> CARD NUMBER</label>
+          <input
+            class="card-number"
+            type="text"
+            name="card-number"
+            placeholder="e.g. 1234 5678 9123 0000"
+          />
 
-          <label for="expiry-date">
-            EXP. DATE (MM/YY)
-            <input type="text" name="expiry-date" />
-            <input type="text" name="expiry-date" />
-          </label>
+          <div class="flex">
+            <label for="expiry-date">
+              EXP. DATE (MM/YY)<br />
+              <input
+                class="expiry-month"
+                type="text"
+                name="expiry-date"
+                placeholder="MM"
+              />
+              <input
+                class="expiry-year"
+                type="text"
+                name="expiry-date"
+                placeholder="YY"
+              />
+            </label>
 
-          <label for="cvc">
-            CVC
-            <input type="text" name="cvc" />
-          </label>
+            <label for="cvc">
+              CVC<br />
+              <input class="cvc" type="text" name="cvc" placeholder="123" />
+            </label>
+          </div>
 
-          <button type="submit" id="submit">SUBMIT</button>
+          <button type="submit" id="submit">Confirm</button>
         </form>
       </section>
     </div>
