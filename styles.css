@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap");
 
 :root {
-  --debug: 1px solid red;
+  --debug-red: 1px solid red;
+  --debug-blue: 1px solid blue;
+  --debug-green: 1px solid green;
+  --debug-black: 1px solid black;
 }
 
 * {
@@ -29,24 +32,32 @@ body {
 }
 
 .container {
-  position: relative;
+  /* position: relative; */
   max-width: 1440px;
   width: 100%;
   margin: auto;
-  height: 800px;
-  display: flex;
+  /* height: 800px; */
+  /* display: flex; */
   /* display: none; */
+}
+
+section {
+  border: var(--debug-red);
 }
 
 section.card-display {
   flex: 0 1 600px;
-  position: relative;
+  /* position: relative; */
   color: hsl(0, 0%, 100%);
-  flex: 1 0 auto;
+  border: var(--debug-blue);
+  float: left;
+  /* flex: 1 0 auto; */
 }
 section.card-details {
-  position: relative;
-  flex: 0 1 45%;
+  /* position: relative; */
+  /* flex: 0 1 45%; */
+  border: var(--debug-green);
+  float: right;
 }
 
 /* CARD STYLING */
@@ -61,12 +72,12 @@ section.card-details {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
 .card-front {
-  left: 210px;
-  top: 130px;
+  left: 470px;
+  top: 25%;
 }
 .card-back {
-  left: 280px;
-  bottom: 130px;
+  left: 540px;
+  bottom: 25%;
 }
 .card-logo,
 .card-number-display,
@@ -121,6 +132,9 @@ section.card-details {
 /* CARD FORM SECTION */
 form {
   height: 350px;
+  position: absolute;
+  top: 33%;
+  right: 25%;
 }
 label {
   display: block;
@@ -150,6 +164,9 @@ input:focus {
 }
 input::placeholder {
   font-weight: 300;
+}
+input:invalid {
+  border: 1px solid hsl(0, 100%, 66%);
 }
 p#errorMsg,
 p#card-num-error,
@@ -207,6 +224,7 @@ button:hover {
 /* THANK YOU SECTION */
 .thank-you {
   position: absolute;
+  right: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -218,7 +236,7 @@ button:hover {
 }
 .thank-you h2 {
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: 500;
 }
 .thank-you p {
@@ -238,32 +256,76 @@ button#continue {
 /* 2560px */
 @media screen and (min-width: 2560px) {
   .card-front {
-    left: 150px;
-    top: 130px;
+    left: 28.5%;
+    top: 33%;
   }
   .card-back {
-    left: 220px;
-    bottom: 130px;
+    left: 31%;
+    bottom: 33%;
+  }
+  form {
+    top: 38%;
+    right: 33%;
+  }
+  .thank-you {
+    right: 33%;
   }
 }
 
 /* 1440px */
 @media screen and (max-width: 1440px) {
   .card-front {
-    left: 255px;
+    left: 19%;
+    top: 20%;
   }
   .card-back {
-    left: 330px;
+    left: 25%;
+    bottom: 20%;
+  }
+  form {
+    right: 15%;
+    top: 30%;
+  }
+  .thank-you {
+    right: 15%;
+    top: 33%;
+  }
+}
+
+/* 1366px */
+@media screen and (max-width: 1366px) {
+  form {
+    top: 200px;
+    right: 200px;
+  }
+  .card-front {
+    top: 17%;
+    left: 18%;
+  }
+  .card-back {
+    bottom: 16%;
+    left: 23%;
   }
 }
 
 /* 1024px */
 @media screen and (max-width: 1024px) {
+  .bg-img {
+    width: 35%;
+  }
   .card-front {
-    left: 75px;
+    left: 6%;
+    top: 20%;
   }
   .card-back {
-    left: 140px;
+    left: 12%;
+    bottom: 20%;
+  }
+  form {
+    right: 6%;
+  }
+  .thank-you {
+    right: 6%;
   }
 }
 
@@ -286,11 +348,12 @@ button#continue {
     height: 300px;
   }
   .card-front {
-    top: 100px;
+    top: 130px;
+    left: 80px;
     z-index: 5;
   }
   .card-back {
-    top: 0px;
+    top: 50px;
     left: 300px;
   }
   .card-front-img,
@@ -307,6 +370,19 @@ button#continue {
     position: relative;
     flex: 0 1 50%;
   }
+  form {
+    top: 0;
+    right: 200px;
+  }
+  .flex .expiry {
+    flex: 0 1 auto;
+    width: 40%;
+  }
+  .flex .cvc {
+    flex: 1 0 50px;
+    justify-self: end;
+    align-self: flex-end;
+  }
 }
 
 /* 425px */
@@ -319,10 +395,11 @@ button#continue {
     max-width: 300px;
   }
   .card-back {
-    left: 100px;
+    left: 90px;
+    top: 30px;
   }
   .card-front {
-    top: 100px;
+    top: 125px;
     left: 30px;
   }
   .card-number-display {
@@ -353,6 +430,9 @@ button#continue {
     position: relative;
     flex: 0 1 65%;
   }
+  form {
+    right: 35px;
+  }
 }
 
 /* 375px */
@@ -367,6 +447,9 @@ button#continue {
     width: 20%;
     top: 20px;
   }
+  form {
+    right: 10px;
+  }
 }
 
 /* 320px */
@@ -375,10 +458,12 @@ button#continue {
     height: 200px;
   }
   .card-back {
-    top: -10px;
+    top: unset;
+    bottom: 610px;
+    left: 50px;
   }
   .card-front {
-    top: 70px;
+    top: 100px;
   }
   .card-front-img,
   .card-back-img {
@@ -386,6 +471,8 @@ button#continue {
   }
   form {
     max-width: 250px;
+    right: 30px;
+    top: -50px;
   }
   input {
     max-width: 250px;
