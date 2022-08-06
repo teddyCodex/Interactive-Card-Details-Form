@@ -165,10 +165,10 @@ continueBtn.addEventListener("click", function () {
   expMM.innerHTML = "00";
   expYY.innerHTML = "0000";
   cvcDisplay.innerHTML = "000";
-  cardholder.value = cardholder.placeholder;
-  cardNumber.value = cardNumber.placeholder;
-  expiry[0].value = expiry[0].placeholder;
-  expiry[1].value = expiry[1].placeholder;
-  cvc.value = cvc.placeholder;
+  cardholder.value = "";
+  cardNumber.value = "";
+  expiry[0].value = "";
+  expiry[1].value = "";
+  cvc.value = "";
   expiryErrorMsg.innerHTML = "";
 });
