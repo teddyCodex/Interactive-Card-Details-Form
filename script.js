@@ -169,4 +169,5 @@ continueBtn.addEventListener("click", function () {
   expiry[0].value = expiry[0].placeholder;
   expiry[1].value = expiry[1].placeholder;
   cvc.value = cvc.placeholder;
+  expiryErrorMsg.innerHTML = "";
 });
