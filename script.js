@@ -94,13 +94,20 @@ function massValidate() {
     }
   }
   function validateExpiry() {
-    let expMonth = /^[0-9]{2}$/;
-    let expYear = /^[0-9]{4}$/;
+    let expMonth = /^(0[0-9]|1[1-2]){2}$/;
+    let expYear = /^[0-9][0-2]{4}$/;
     let expiryErrorMsg = document.getElementById("expiry-error");
-    if (expiry[0].value.match(expMonth) && expiry[1].value.match(expYear)) {
+    if (expiry[0].value.match(expMonth)) {
       expiryErrorMsg.innerHTML = "";
-    } else {
+    } else if (
+      expiry[0].value.match(expMonth) &&
+      expiry[1].value.match(expYear)
+    ) {
+      expiryErrorMsg.innerHTML = "";
+    } else if (expiry[0] == "") {
       expiryErrorMsg.innerHTML = "Can't be blank!";
+    } else {
+      expiryErrorMsg.innerHTML = "Wrong format!";
     }
   }
   function validateCvc() {
@@ -114,24 +121,23 @@ function massValidate() {
       cvcErrorMsg.innerHTML = "Wrong format!";
     }
   }
-  validateName();
   validateCard();
+  validateName();
   validateExpiry();
   validateCvc();
-
   if (
     nameOnCard.innerHTML == cardholder.placeholder ||
     numOnCard.innerHTML == cardNumber.placeholder ||
     expMM.innerHTML == "00" ||
     expYY.innerHTML == "0000" ||
-    cvcDisplay.innerHTML == "000"
+    cvcDisplay.innerHTML == "000" ||
+    (cardNumber.value.length > 0 && cardNumber.value.length < 16)
   ) {
     return false;
   } else {
     return true;
   }
 }
-
 // Submit Button
 
 submit.addEventListener("click", function () {
@@ -144,6 +150,7 @@ submit.addEventListener("click", function () {
     form.classList.add("hidden");
     thankYouSection.classList.remove("hidden");
   }
+  //   console.log(cardNumber.value.length > 0 && cardNumber.value.length < 16);
 });
 
 // Continue Button
