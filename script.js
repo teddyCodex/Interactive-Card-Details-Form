@@ -8,11 +8,16 @@ const numOnCard = document.querySelector(".card-number-display");
 const expMM = document.querySelector(".expiry-month-display");
 const expYY = document.querySelector(".expiry-year-display");
 const cvcDisplay = document.querySelector(".cvc-display");
+const thankYou = document.getElementById("thank-you-header");
+const thankYouSection = document.getElementById("thank-you");
+const continueBtn = document.getElementById("continue");
+const form = document.getElementById("myForm");
 
 // console.log(expMM);
 
 function inputName() {
   nameOnCard.innerHTML = cardholder.value;
+  thankYou.innerHTML = `Thank You ${cardholder.value}`;
   if (nameOnCard.innerHTML == "") {
     nameOnCard.innerHTML = cardholder.placeholder;
   }
@@ -133,5 +138,28 @@ submit.addEventListener("click", function () {
   massValidate();
   if (massValidate() == false) {
     event.preventDefault();
+  } else {
+    event.preventDefault();
+
+    form.classList.add("hidden");
+    thankYouSection.classList.remove("hidden");
   }
+});
+
+// Continue Button
+
+continueBtn.addEventListener("click", function () {
+  event.preventDefault();
+  thankYouSection.classList.add("hidden");
+  form.classList.remove("hidden");
+  nameOnCard.innerHTML = cardholder.placeholder;
+  numOnCard.innerHTML = cardNumber.placeholder;
+  expMM.innerHTML = "00";
+  expYY.innerHTML = "0000";
+  cvcDisplay.innerHTML = "000";
+  cardholder.value = cardholder.placeholder;
+  cardNumber.value = cardNumber.placeholder;
+  expiry[0].value = expiry[0].placeholder;
+  expiry[1].value = expiry[1].placeholder;
+  cvc.value = cvc.placeholder;
 });

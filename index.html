@@ -18,7 +18,12 @@
     <img
       class="bg-img"
       src="images/bg-main-desktop.png"
-      alt="background-image"
+      alt="background image for desktop view"
+    />
+    <img
+      class="bg-img-xs"
+      src="images/bg-main-mobile.png"
+      alt="background image for mobile view"
     />
     <div class="container">
       <section class="card-display">
@@ -47,7 +52,7 @@
       </section>
 
       <section class="card-details">
-        <form action="/action_page.php" name="myForm">
+        <form id="myForm" action="/action_page.php" name="myForm">
           <label for="cardholder-name"> CARDHOLDER NAME</label>
           <input
             id="cardholder-name"
@@ -106,6 +111,12 @@
 
           <button id="submit">Confirm</button>
         </form>
+        <div id="thank-you" class="thank-you hidden">
+          <img src="images/icon-complete.svg" alt="" />
+          <h2 id="thank-you-header">Thank You!</h2>
+          <p>We've added your card details</p>
+          <button id="continue">Continue</button>
+        </div>
       </section>
     </div>
     <script src="script.js"></script>
