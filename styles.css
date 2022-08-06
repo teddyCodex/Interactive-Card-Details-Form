@@ -68,7 +68,9 @@ section.card-details {
 .card-logo,
 .card-number-display,
 .cardholder-display,
-.expiry-date-display {
+.expiry-month-display,
+.expiry-divider-display,
+.expiry-year-display {
   position: absolute;
 }
 .card-logo {
@@ -87,10 +89,23 @@ section.card-details {
   bottom: 30px;
   left: 30px;
   font-size: 0.9em;
+  text-transform: uppercase;
 }
-.expiry-date-display {
+.expiry-month-display {
   bottom: 30px;
-  right: 40px;
+  right: 85px;
+  font-size: 0.9em;
+}
+
+.expiry-divider-display {
+  bottom: 30px;
+  right: 75px;
+  font-size: 0.9em;
+}
+
+.expiry-year-display {
+  bottom: 30px;
+  right: 30px;
   font-size: 0.9em;
 }
 
@@ -111,6 +126,11 @@ label {
   margin-bottom: 5px;
   letter-spacing: 2px;
 }
+label.card-number,
+label.expiry-date,
+label.cvc {
+  margin-top: 30px;
+}
 input {
   width: 350px;
   padding: 10px 10px;
@@ -128,21 +148,33 @@ input:focus {
 input::placeholder {
   font-weight: 300;
 }
+p#errorMsg,
+p#card-num-error,
+p#expiry-error,
+p#error-cvc {
+  color: hsl(0, 100%, 66%);
+  font-size: 12px;
+  font-weight: 500;
+  padding-top: 2px;
+  padding-left: 2px;
+}
+p#expiry-error,
+p#error-cvc {
+  letter-spacing: 1px;
+}
 .flex {
   display: flex;
   gap: 20px;
   margin-bottom: 40px;
 }
-.flex .expiry-month,
-.flex .expiry-year {
+.flex .expiry {
   width: 90px;
   margin-right: 5px;
 }
 .flex .cvc {
   width: 135px;
 }
-input.expiry-month,
-input.expiry-year,
+input.expiry,
 input.cvc {
   margin-top: 5px;
 }
@@ -150,10 +182,6 @@ input.cvc {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-input.cardholder-name,
-input.card-number {
-  margin-bottom: 30px;
 }
 
 button {

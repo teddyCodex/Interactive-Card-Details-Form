@@ -33,9 +33,11 @@
             src="images/card-logo.svg"
             alt="logo on the card"
           />
-          <p class="card-number-display">0000 0000 0000 0000</p>
-          <p class="cardholder-display">JANE APPLESEED</p>
-          <p class="expiry-date-display">00/00</p>
+          <pre><p class="card-number-display">1234 5678 9123 0000</p></pre>
+          <p class="cardholder-display">John Wick's Dog</p>
+          <p class="expiry-month-display">00</p>
+          <p class="expiry-divider-display">/</p>
+          <p class="expiry-year-display">0000</p>
         </div>
 
         <div class="card-back">
@@ -45,49 +47,67 @@
       </section>
 
       <section class="card-details">
-        <form action="">
+        <form action="/action_page.php" name="myForm">
           <label for="cardholder-name"> CARDHOLDER NAME</label>
           <input
+            id="cardholder-name"
             class="cardholder-name"
             type="text"
             name="cardholder-name"
-            placeholder="e.g. Jane Appleseed"
+            placeholder="John Wick's Dog"
+            oninput="inputName()"
           />
+          <p id="errorMsg"></p>
 
-          <label for="card-number"> CARD NUMBER</label>
+          <label class="card-number" for="card-number"> CARD NUMBER</label>
           <input
+            id="card-number"
             class="card-number"
             type="text"
             name="card-number"
-            placeholder="e.g. 1234 5678 9123 0000"
+            placeholder="1234 5678 9123 0000"
+            oninput="inputCardNum()"
           />
+          <p id="card-num-error"></p>
 
           <div class="flex">
-            <label for="expiry-date">
-              EXP. DATE (MM/YY)<br />
+            <label class="expiry-date" for="expiry-date">
+              EXP. DATE (MM/YYYY)<br />
               <input
-                class="expiry-month"
+                class="expiry"
                 type="text"
                 name="expiry-date"
                 placeholder="MM"
+                oninput="inputMM()"
               />
               <input
-                class="expiry-year"
+                class="expiry"
                 type="text"
                 name="expiry-date"
-                placeholder="YY"
+                placeholder="YYYY"
+                oninput="inputYY()"
               />
+              <p id="expiry-error"></p>
             </label>
 
-            <label for="cvc">
+            <label class="cvc" for="cvc">
               CVC<br />
-              <input class="cvc" type="text" name="cvc" placeholder="123" />
+              <input
+                id="cvc"
+                class="cvc"
+                type="text"
+                name="cvc"
+                placeholder="123"
+                oninput="inputCvc()"
+              />
+              <p id="error-cvc"></p>
             </label>
           </div>
 
-          <button type="submit" id="submit">Confirm</button>
+          <button id="submit">Confirm</button>
         </form>
       </section>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
