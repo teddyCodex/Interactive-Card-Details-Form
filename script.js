@@ -12,6 +12,7 @@ const thankYou = document.getElementById("thank-you-header");
 const thankYouSection = document.getElementById("thank-you");
 const continueBtn = document.getElementById("continue");
 const form = document.getElementById("myForm");
+const expiryErrorMsg = document.getElementById("expiry-error");
 
 // console.log(expMM);
 
@@ -96,7 +97,7 @@ function massValidate() {
   function validateExpiry() {
     let expMonth = /^(0[0-9]|1[1-2]){2}$/;
     let expYear = /^[0-9][0-2]{4}$/;
-    let expiryErrorMsg = document.getElementById("expiry-error");
+
     if (expiry[0].value.match(expMonth)) {
       expiryErrorMsg.innerHTML = "";
     } else if (
